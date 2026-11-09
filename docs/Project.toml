@@ -1,8 +1,8 @@
 [deps]
 Documenter = "e30172f5-a6a5-5a46-863b-614d45cd2de4"
-FIIBCICorpus = "3c66b73d-d676-47f4-a036-f20befcb0b39"
+FIIBCIcorpus = "3c66b73d-d676-47f4-a036-f20befcb0b39"
 LiveServer = "16fef848-5104-11e9-1b77-fb7a48bbb589"
 Revise = "295af30f-e4ad-537b-8983-00126c2a3abe"
 
 [sources]
-FIIBCICorpus = {path = ".."}
+FIIBCIcorpus = {path = ".."}

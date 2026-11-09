@@ -2,9 +2,9 @@
 |:-----:|:-----:|:-----:|:-----:|
 | [![](https://img.shields.io/badge/docs-dev-blue.svg)](https://fhmdmi.github.io/FIIBCICorpus.jl/dev/) | [![CI](https://github.com/FhmDmi/FIIBCICorpus.jl/actions/workflows/CI.yml/badge.svg)](https://github.com/FhmDmi/FIIBCICorpus.jl/actions/workflows/CI.yml) | [![](https://img.shields.io/badge/Motor_Imagery-blue.svg)](https://doi.org/10.5281/zenodo.17801878) [![](https://img.shields.io/badge/P300-blue.svg)](https://doi.org/10.5281/zenodo.17250465) | [![](https://img.shields.io/badge/Eegle-blue.svg)](https://github.com/Marco-Congedo/Eegle.jl) |
 
-# FIIBCICorpus
+# FIIBCIcorpus
 
-**FIIBCICorpus** is the data loader of the [**Eegle**](https://github.com/Marco-Congedo/Eegle.jl) ecosystem
+**FIIBCIcorpus** is the data loader of the [**Eegle**](https://github.com/Marco-Congedo/Eegle.jl) ecosystem
 for the **FII BCI Corpus**, a selection of Brain-Computer Interface (BCI) EEG databases in Motor Imagery (MI)
 and P300 paradigms, annotated and curated for research purposes in [NY format](https://fhmdmi.github.io/FIIBCICorpus.jl/dev/documents/NY%20format/).
 
@@ -13,7 +13,7 @@ It provides:
 - tools to inspect the databases and select the sessions meeting given inclusion criteria (paradigm, classes, minimum number of trials, metadata);
 - file system utilities.
 
-The NY files are then read and processed with **Eegle**, which depends on **FIIBCICorpus** and re-exports it.
+The NY files are then read and processed with **Eegle**, which depends on **FIIBCIcorpus** and re-exports it.
 
 ---
 
@@ -28,7 +28,7 @@ The NY files are then read and processed with **Eegle**, which depends on **FIIB
 Execute the following command in Julia's REPL:
 
 ```julia
-]add FIIBCICorpus
+]add https://github.com/FhmDmi/FIIBCICorpus.jl/tree/master
 ```
 
 ---
@@ -36,7 +36,7 @@ Execute the following command in Julia's REPL:
 ## —͟͟͞͞★ Quick Start
 
 ```julia
-using FIIBCICorpus
+using FIIBCIcorpus
 
 downloadDB() # run the GUI to download the corpus in the homedir
 

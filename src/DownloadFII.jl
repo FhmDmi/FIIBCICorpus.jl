@@ -49,11 +49,11 @@ the size of their ZIP archive (read from Zenodo, if reachable) and their status 
 
 The databases are downloaded in the folder *FII_BCI_Corpus* created in the *homedir*
 (e.g., `C:\\Users\\Name\\FII_BCI_Corpus` on Windows).
-This is the default location where [`corpusDir`](@ref) and [`selectDB`](@ref FIIBCICorpus.Database.selectDB) look for the corpus.
+This is the default location where [`corpusDir`](@ref) and [`selectDB`](@ref FIIBCIcorpus.Database.selectDB) look for the corpus.
 
 The **Choose path** button invokes a folder selection window to choose another folder where the corpus is to be downloaded.
 In this case, the folder must be passed explicitly as argument `corpusdir` to function
-[`selectDB`](@ref FIIBCICorpus.Database.selectDB).
+[`selectDB`](@ref FIIBCIcorpus.Database.selectDB).
 
 !!! warning "Folder selection window"
     The folder selection window may open minimized. Check the task bar if you don't see it.
@@ -80,8 +80,8 @@ is printed when the download has ended.
     The databases pertaining to the MI and P300 paradigm must be downloaded separately.
 
 !!! tip "Using the FII BCI Corpus"
-    Once the corpus is downloaded in the default location, **FIIBCICorpus** finds it automatically. Therefore, omitting the argument `corpusdir` while using function
-    [`selectDB`](@ref FIIBCICorpus.Database.selectDB)
+    Once the corpus is downloaded in the default location, **FIIBCIcorpus** finds it automatically. Therefore, omitting the argument `corpusdir` while using function
+    [`selectDB`](@ref FIIBCIcorpus.Database.selectDB)
     will automatically point to the FII BCI corpus. Since the location does not depend on the Julia or package installation,
     there is no need to download the corpus again after updating them.
 
@@ -108,7 +108,7 @@ This is the same as (2), but for a vector of Zenodo record URLs.
 
 **Examples**
 ```julia
-using FIIBCICorpus
+using FIIBCIcorpus
 
 downloadDB() # run the GUI
 

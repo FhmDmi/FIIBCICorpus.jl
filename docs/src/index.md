@@ -1,10 +1,10 @@
-# FIIBCICorpus Documentation
+# FIIBCIcorpus Documentation
 
-**FIIBCICorpus** is the data loader of the [Eegle](https://marco-congedo.github.io/Eegle.jl/dev/) ecosystem
+**FIIBCIcorpus** is the data loader of the [Eegle](https://marco-congedo.github.io/Eegle.jl/dev/) ecosystem
 for the [FII BCI Corpus](@ref "FII BCI Corpus Overview").
 
 It downloads the databases of the corpus in [NY format](@ref "NY format").
-The NY files are then read and processed with **Eegle**, which depends on **FIIBCICorpus** and re-exports it.
+The NY files are then read and processed with **Eegle**, which depends on **FIIBCIcorpus** and re-exports it.
 
 ## 🧩 Requirements 
 
@@ -17,7 +17,7 @@ The NY files are then read and processed with **Eegle**, which depends on **FIIB
 Execute the following commands in Julia's REPL:
 
 ```julia
-]add FIIBCICorpus
+]add https://github.com/FhmDmi/FIIBCICorpus.jl/tree/master
 ```
 then hit the 'back' keyboard key to exit the REPL package manager mode.
 
@@ -26,12 +26,12 @@ then hit the 'back' keyboard key to exit the REPL package manager mode.
 ## —͟͟͞͞★ Quick Start
 
 ```julia
-using FIIBCICorpus
+using FIIBCIcorpus
 
 downloadDB() # run the GUI to download the corpus in the homedir
 ```
 
-Read the [next page](@ref "FIIBCICorpus") of this documentation for general informations.
+Read the [next page](@ref "FIIBCIcorpus") of this documentation for general informations.
 
 ---
 
@@ -55,7 +55,7 @@ Read the [next page](@ref "FIIBCICorpus") of this documentation for general info
 
 ```julia
 using Pkg
-Pkg.test("FIIBCICorpus")
+Pkg.test("FIIBCIcorpus")
 ```
 
 ---
@@ -64,7 +64,7 @@ Pkg.test("FIIBCICorpus")
 
 ```@contents
 Pages = [       "index.md",
-                "FIIBCICorpus.md",
+                "FIIBCIcorpus.md",
                 "DownloadFII.md",
                 "Database.md",
                 "documents/FII BCI Corpus Overview.md",

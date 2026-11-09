@@ -1,6 +1,6 @@
 # Terminology
 
-This page holds a detailed definition of terms used in relation to BCI databases. These definitions are used consistently throughout the **FIIBCICorpus** and **Eegle** documentation and will be often referred to.
+This page holds a detailed definition of terms used in relation to BCI databases. These definitions are used consistently throughout the **FIIBCIcorpus** and **Eegle** documentation and will be often referred to.
 
 ## BCI paradigm  
 It is a kind of BCI exploiting a specific electrophysiological phenomenon in order to achieve decoding of EEG data. 

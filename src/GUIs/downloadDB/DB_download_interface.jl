@@ -22,7 +22,7 @@ function _catalogSizes()
                 sizes[replace(f["key"], r"\.zip$" => "")] = f["size"]
             end
         catch e
-            @warn "FIIBCICorpus.DownloadFII, function downloadDB: the size of the databases could not be read from Zenodo" exception = e
+            @warn "FIIBCIcorpus.DownloadFII, function downloadDB: the size of the databases could not be read from Zenodo" exception = e
         end
     end
     return sizes
@@ -234,7 +234,7 @@ function _downloadDB(; nDownloads::Int = 4)
 
         return DOM.div( D.FlexCol(
             DOM.br(),
-            D.Title(" 📥 FIIBCICorpus GUI: download the FII BCI Corpus", style = title_style),
+            D.Title(" 📥 FIIBCIcorpus GUI: download the FII BCI Corpus", style = title_style),
             DOM.br(),
             D.FlexRow(
                 D.Card(D.FlexCol(D.Title("Database options"), dropdown, mintrials, checkbox_widgets,
@@ -254,25 +254,25 @@ end
 function _downloadDB(url::String, dest::String = homedir(); nDownloads::Int = 4)
 
     if !isurl(url)
-        error("FIIBCICorpus.DownloadFII, function downloadDB: Invalid URL format: $url")
+        error("FIIBCIcorpus.DownloadFII, function downloadDB: Invalid URL format: $url")
     end
 
     ## Transform the Zenodo url to JSON format
     if occursin("https://zenodo.org", url)
         url = replace(url, "https://zenodo.org" => "https://zenodo.org/api")
     else
-        error("FIIBCICorpus.DownloadFII, function downloadDB: URL must be a Zenodo record")
+        error("FIIBCIcorpus.DownloadFII, function downloadDB: URL must be a Zenodo record")
     end
 
     ## Check the directory
     if !isdir(dest)
-        error("FIIBCICorpus.DownloadFII, function downloadDB: invalid directory")
+        error("FIIBCIcorpus.DownloadFII, function downloadDB: invalid directory")
     end
 
     ## Check if the url is reachable
     resp = HTTP.get(url)
     if resp.status != 200
-        error("FIIBCICorpus.DownloadFII, function downloadDB: URL not reachable (status $(resp.status))")
+        error("FIIBCIcorpus.DownloadFII, function downloadDB: URL not reachable (status $(resp.status))")
     end
 
     meta = JSON.parse(String(resp.body))
@@ -297,7 +297,7 @@ function _downloadDB(urls::Vector{String}, dest::String = homedir(); nDownloads:
         try
             downloadDB(url, dest; nDownloads)
         catch e
-            @warn "FIIBCICorpus.DownloadFII, function downloadDB: download failed for $url — skipping. Error: $e"
+            @warn "FIIBCIcorpus.DownloadFII, function downloadDB: download failed for $url — skipping. Error: $e"
         end
     end
 end

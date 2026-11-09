@@ -247,7 +247,7 @@ function _runJob!(job::_Job, sem::Base.Semaphore, deleteZip::Bool)
         rm(zippath; force = true)
         rm(joinpath(job.basepath, job.name); force = true, recursive = true)
         println()
-        @error "FIIBCICorpus.DownloadFII, function downloadDB: error downloading $(job.name)" exception = e
+        @error "FIIBCIcorpus.DownloadFII, function downloadDB: error downloading $(job.name)" exception = e
     end
     return nothing
 end
@@ -281,7 +281,7 @@ function _runJobs!(jobs::Vector{_Job}; deleteZip::Bool = true, nDownloads::Int =
     end
 
     if verbose
-        println(titleFont, "\nFIIBCICorpus is downloading the FII BCI corpus", defaultFont)
+        println(titleFont, "\nFIIBCIcorpus is downloading the FII BCI corpus", defaultFont)
         println(greyFont, "$(length(todo)) databases, up to $(nDownloads) downloads at a time, extraction on $(Threads.nthreads()) threads.", defaultFont)
         println(greyFont, "You can keep using julia in the meanwhile,", defaultFont)
         println(greyFont, "while killing the REPL will interrupt the process.", defaultFont)
@@ -327,7 +327,7 @@ Since the download runs in the background, call `corpusDir()` again once it has 
 
 If the corpus has been downloaded in another folder, that folder must be given explicitly
 to the functions using it (e.g., argument `corpusdir` of
-[`selectDB`](@ref FIIBCICorpus.Database.selectDB)).
+[`selectDB`](@ref FIIBCIcorpus.Database.selectDB)).
 
 **Return** the path of the corpus as a `String`, or `nothing` if it is not found.
 
@@ -335,7 +335,7 @@ to the functions using it (e.g., argument `corpusdir` of
 
 **Example**
 ```julia
-using FIIBCICorpus
+using FIIBCIcorpus
 
 # get the full path of all .npz (data) files of database AlexMI
 db = loadDB(joinpath(corpusDir(), "MI", "AlexMI"))
@@ -348,7 +348,7 @@ function corpusDir()
     path = joinpath(homedir(), CORPUS_DIR)
     isdir(path) && return path
 
-    @warn "FIIBCICorpus.DownloadFII, function corpusDir: the FII BCI Corpus has not been found in its default location $(path)."
+    @warn "FIIBCIcorpus.DownloadFII, function corpusDir: the FII BCI Corpus has not been found in its default location $(path)."
     # no prompt in non-interactive sessions (scripts, tests, CI), which would block on stdin
     isinteractive() || return nothing
 

@@ -4,7 +4,7 @@ This document outlines the rationale and content of the **FII BCI Corpus** Zenod
 
 ## Install
 
-The corpus can be easily installed using the download GUI of **FIIBCICorpus** — see [`downloadDB`](@ref FIIBCICorpus.DownloadFII.downloadDB).
+The corpus can be easily installed using the download GUI of **FIIBCIcorpus** — see [`downloadDB`](@ref FIIBCIcorpus.DownloadFII.downloadDB).
 The size on disk is **36.6 GB** for MI and **14.2 GB** for P300.
 
 ## Contribute

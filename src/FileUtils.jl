@@ -1,4 +1,4 @@
-# Internal helpers on files and folders, used by the other modules of FIIBCICorpus.
+# Internal helpers on files and folders, used by the other modules of FIIBCIcorpus.
 # Neither exported nor re-exported. The public module for this is `Eegle.FileSystem`: the different
 # module name and the leading underscores avoid any confusion with it.
 module FileUtils
@@ -10,7 +10,7 @@ _fileBase(file::String) = isnothing(findlast(==('.'), file)) ? file : file[begin
 # `ext` is a tuple of lowercase extensions including the dot; if empty, any extension is accepted.
 # If `isin` is not empty, keep only the files whose name contains it.
 _getFilesInDir(dir::String; ext::Tuple=(), isin::String="") =
-if !isdir(dir) @error "FIIBCICorpus.FileUtils, function `_getFilesInDir`: input directory is incorrect!"
+if !isdir(dir) @error "FIIBCIcorpus.FileUtils, function `_getFilesInDir`: input directory is incorrect!"
 else
     S=[]
     for (root, dirs, files) in walkdir(dir)
@@ -24,7 +24,7 @@ else
             end
         end
     end
-    isempty(S) && @warn "FIIBCICorpus.FileUtils, function `_getFilesInDir`: input directory does not contain any files"
+    isempty(S) && @warn "FIIBCIcorpus.FileUtils, function `_getFilesInDir`: input directory does not contain any files"
     return Vector{String}(S)
 end
 
@@ -37,7 +37,7 @@ end
 # Return the complete path of the folders directly in `dir`.
 # If `isin` is not empty, keep only the folders whose name contains it.
 _getFoldersInDir(dir::String; isin::String="") =
-if !isdir(dir) @error "FIIBCICorpus.FileUtils, function `_getFoldersInDir`: input directory is incorrect!"
+if !isdir(dir) @error "FIIBCIcorpus.FileUtils, function `_getFoldersInDir`: input directory is incorrect!"
 else
     S=[]
     for (root, dirs, files) in walkdir(dir)
@@ -49,7 +49,7 @@ else
             end
         end
     end
-    isempty(S) && @warn "FIIBCICorpus.FileUtils, function `_getFoldersInDir`: input directory does not contain any folders"
+    isempty(S) && @warn "FIIBCIcorpus.FileUtils, function `_getFoldersInDir`: input directory does not contain any folders"
     return Vector{String}(S)
 end
 

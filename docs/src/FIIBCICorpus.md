@@ -1,18 +1,18 @@
 ```@meta
-CurrentModule = FIIBCICorpus
+CurrentModule = FIIBCIcorpus
 ```
 
-# FIIBCICorpus
+# FIIBCIcorpus
 
 Is the data loader of the [Eegle](https://marco-congedo.github.io/Eegle.jl/dev/) ecosystem.
 It is organized as a collection of modules, which are all re-exported. Thus, if you state
 
 ```julia
-using FIIBCICorpus
+using FIIBCIcorpus
 ```
 
-you have access to all functions exported by all **FIIBCICorpus** modules.
-Since **Eegle** re-exports **FIIBCICorpus**, `using Eegle` gives access to them as well.
+you have access to all functions exported by all **FIIBCIcorpus** modules.
+Since **Eegle** re-exports **FIIBCIcorpus**, `using Eegle` gives access to them as well.
 
 ## Internal modules
 

@@ -1,4 +1,4 @@
-println("\x1b[95m", "\nTesting module FIIBCICorpus.Database.jl...", "\x1b[0m")
+println("\x1b[95m", "\nTesting module FIIBCIcorpus.Database.jl...", "\x1b[0m")
 
 # All tests run on small fake databases in NY format built in a temporary directory:
 # realistic .yml metadata files (same field structure as the files of the FII BCI Corpus)
@@ -268,7 +268,7 @@ end
     @test w[1] + w[2] ≈ √3 * √2
 
     # examples A to D of the docstring
-    dbW = FIIBCICorpus.Database._weightsDB
+    dbW = FIIBCIcorpus.Database._weightsDB
     @test dbW(collect(1:64), 64)[1] ≈ fill(8.0, 64)
     @test dbW(repeat(1:64; inner = 4), 256)[1] ≈ fill(4.0, 256)
     @test dbW(repeat(1:16; inner = 4), 64)[1] ≈ fill(2.0, 64)

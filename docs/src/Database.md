@@ -1,5 +1,5 @@
 ```@meta
-CurrentModule = FIIBCICorpus
+CurrentModule = FIIBCIcorpus
 ```
 
 ## Database.jl
@@ -15,22 +15,22 @@ Most functionalities of this module are also encapsulated in the [pyLittleEegle]
 
 |  Function            |           Description             |
 |:---------------------|:----------------------------------|
-|[`FIIBCICorpus.Database.InfoDB`](@ref)      | structure holding the information summarizing an EEG-BCI database |
+|[`FIIBCIcorpus.Database.InfoDB`](@ref)      | structure holding the information summarizing an EEG-BCI database |
 
 ## Methods
 
 |  Function            |           Description             |
 |:---------------------|:----------------------------------|
-|[`FIIBCICorpus.Database.loadDB`](@ref)        | return a list of *.npz* files in a directory (this is considered a [database](@ref "database")) |
-|[`FIIBCICorpus.Database.infoDB`](@ref)        | print, save and return metadata about a database |
-|[`FIIBCICorpus.Database.selectDB`](@ref)      | select databases and sessions based on inclusion criteria
-|[`FIIBCICorpus.Database.weightsDB`](@ref)     | get weights for each session of a database for statistical analysis |
+|[`FIIBCIcorpus.Database.loadDB`](@ref)        | return a list of *.npz* files in a directory (this is considered a [database](@ref "database")) |
+|[`FIIBCIcorpus.Database.infoDB`](@ref)        | print, save and return metadata about a database |
+|[`FIIBCIcorpus.Database.selectDB`](@ref)      | select databases and sessions based on inclusion criteria
+|[`FIIBCIcorpus.Database.weightsDB`](@ref)     | get weights for each session of a database for statistical analysis |
 
 📖
 ```@docs
-    FIIBCICorpus.Database.InfoDB
-    FIIBCICorpus.Database.loadDB
-    FIIBCICorpus.Database.infoDB
-    FIIBCICorpus.Database.selectDB
-    FIIBCICorpus.Database.weightsDB
+    FIIBCIcorpus.Database.InfoDB
+    FIIBCIcorpus.Database.loadDB
+    FIIBCIcorpus.Database.infoDB
+    FIIBCIcorpus.Database.selectDB
+    FIIBCIcorpus.Database.weightsDB
 ```

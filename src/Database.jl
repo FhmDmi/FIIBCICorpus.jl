@@ -3,7 +3,7 @@ module Database
 using YAML
 using DataFrames
 
-import FIIBCICorpus
+import FIIBCIcorpus
 
 # Module REPL text colors
 const titleFont     = "\x1b[95m"
@@ -61,7 +61,7 @@ It is created by functions [`infoDB`](@ref) and [`selectDB`](@ref).
 - `.nTrials`: a dictionary mapping each class label to a vector containing the number of trials per session for that class. For example, `nTrials["left_hand"]` returns a vector with the number of trials for `"left_hand"` across all sessions.
 
 The following fields are assumed constant across all sessions of the database.
-This is checked by **FIIBCICorpus** when a database is read.
+This is checked by **FIIBCIcorpus** when a database is read.
 
 - `.dbName`: name or identifier of the [database](@ref "database")
 - `.condition`: experimental condition under which the DB has been recorded
@@ -139,12 +139,12 @@ See the first example of [`weightsDB`](@ref)
 """
 function loadDB(dbDir=AbstractString, isin::String="")
   # create a list of all .npz files found in dbDir (complete path)
-  npzFiles=FIIBCICorpus.FileUtils._getFilesInDir(dbDir; ext=(".npz", ), isin=isin)
+  npzFiles=FIIBCIcorpus.FileUtils._getFilesInDir(dbDir; ext=(".npz", ), isin=isin)
 
   # check if for each .npz file there is a corresponding .yml file
   missingYML=[i for i ∈ eachindex(npzFiles) if !isfile(splitext(npzFiles[i])[1]*".yml")]
   if !isempty(missingYML)
-    @warn "FIIBCICorpus.Database, function `loadDB`: the following .yml files have not been found:\n"
+    @warn "FIIBCIcorpus.Database, function `loadDB`: the following .yml files have not been found:\n"
     for i ∈ missingYML 
         println(splitext(npzFiles[i])[1]*".yml") 
     end
@@ -181,11 +181,11 @@ function infoDB(dbDir)
     for (i, f) ∈ enumerate(files)
         splitext(f)[2]≠".npz" && deleteat!(files, i)
     end
-    length(files)==0 && error("FIIBCICorpus.Database, function `infoDB`: there are no .npz files in the list of files passed as argument")
+    length(files)==0 && error("FIIBCIcorpus.Database, function `infoDB`: there are no .npz files in the list of files passed as argument")
 
     # read one YAML file to find out the type of dictionary values
     filename = files[1]
-    isfile(splitext(filename)[1]*".yml") || error("FIIBCICorpus.Database, function `infoDB`: no .yml (recording info) file has been found for npz file \n:", filename)
+    isfile(splitext(filename)[1]*".yml") || error("FIIBCIcorpus.Database, function `infoDB`: no .yml (recording info) file has been found for npz file \n:", filename)
     info = YAML.load(open(splitext(filename)[1]*".yml")) # read info file
 
     # get memory for all entries of the YAML dictionary for all files
@@ -223,7 +223,7 @@ function infoDB(dbDir)
 
     for (f, filename) ∈ enumerate(files)
 
-        isfile(splitext(filename)[1]*".yml") || error("FIIBCICorpus.Database, function `infoDB`: no .yml (recording meta-data) file has been found for npz file \n:", filename)
+        isfile(splitext(filename)[1]*".yml") || error("FIIBCIcorpus.Database, function `infoDB`: no .yml (recording meta-data) file has been found for npz file \n:", filename)
         info = YAML.load(open(splitext(filename)[1]*".yml"))
 
         acq = info["acquisition"]
@@ -265,7 +265,7 @@ function infoDB(dbDir)
     nwarnings = 0
     function mywarn(text::String)
         nwarnings += 1
-        @warn "FIIBCICorpus.Database, function `infoDB`: $text"
+        @warn "FIIBCIcorpus.Database, function `infoDB`: $text"
     end
    
     # Check critical field consistency (warn if not unique)
@@ -279,12 +279,12 @@ function infoDB(dbDir)
     # CRITICAL ERROR CHECK: unicity of triplets (subject, session, run)
     ssr = Tuple[]
     for (i, j, l) ∈ zip(subject, session, run) push!(ssr, (i, j, l)) end
-    length(unique(ssr)) < length(subject) && error("FIIBCICorpus.Database, function `infoDB`:: there are duplicated triplets (subject, session, run)")
+    length(unique(ssr)) < length(subject) && error("FIIBCIcorpus.Database, function `infoDB`:: there are duplicated triplets (subject, session, run)")
 
     # CRITICAL ERROR CHECK: session count consistency
     usub = unique(subject)
     sess = [sum(ss==s for ss∈subject) for s∈usub] # sessions per subject
-    sum(sess) ≠ length(files) && error("FIIBCICorpus.Database, function `infoDB`: the number of sessions does not match the number of files in database")
+    sum(sess) ≠ length(files) && error("FIIBCIcorpus.Database, function `infoDB`: the number of sessions does not match the number of files in database")
 
     # Warning about run field inconsistency
     length(unique(run)) > 1 && mywarn("field `run` should be considered the number of runs and should be the same in all recordings. In any case this field is not used")
@@ -670,8 +670,8 @@ wherein the `InfoDB.files` field lists the included sessions only.
     If a folder with the same name of the paradigm (for example: "MI") is found in `corpusdir`, the search starts therein
     and not in `corpusdir`. This way you can use the same `corpusdir` for all paradigms.
 
-    If you want to use the [FII BCI corpus](@ref "FII BCI Corpus Overview") and you have downloaded it in its default location (*homedir*/FII_BCI_Corpus) using the provided GUI — see [`downloadDB`](@ref FIIBCICorpus.DownloadFII.downloadDB) —, you can simply
-    omit this argument; **FIIBCICorpus** will automatically search within the FII BCI Corpus directory — see [`corpusDir`](@ref FIIBCICorpus.DownloadFII.corpusDir).
+    If you want to use the [FII BCI corpus](@ref "FII BCI Corpus Overview") and you have downloaded it in its default location (*homedir*/FII_BCI_Corpus) using the provided GUI — see [`downloadDB`](@ref FIIBCIcorpus.DownloadFII.downloadDB) —, you can simply
+    omit this argument; **FIIBCIcorpus** will automatically search within the FII BCI Corpus directory — see [`corpusDir`](@ref FIIBCIcorpus.DownloadFII.corpusDir).
     If the corpus is not found there, you are asked whether to launch the download GUI.
 
 - `paradigm`: the BCI paradigm to be used. Supported paradigms at this time are `:P300` and `:MI`.
@@ -784,25 +784,25 @@ function selectDB(corpusdir     :: String,
                   inclusion     :: Union{Tuple, Nothing} = nothing,
                   summarize     :: Bool = true,
                   verbose       :: Bool = false)
-    paradigm ∉ (:MI, :P300, :ERP) && error("FIIBCICorpus.Database, function `selectDB`: Unsupported paradigm. Use :MI, :P300 or :ERP")
+    paradigm ∉ (:MI, :P300, :ERP) && error("FIIBCIcorpus.Database, function `selectDB`: Unsupported paradigm. Use :MI, :P300 or :ERP")
     
     # Auto-correct flat tuple format: ("field", pred) → (("field", pred),)
     if !isnothing(inclusion) && !isempty(inclusion) && inclusion[1] isa String
-        @warn "FIIBCICorpus.Database, function `selectDB`: `inclusion` was passed as a flat tuple — automatically wrapped. Add a trailing comma to avoid this: ((...),)"
+        @warn "FIIBCIcorpus.Database, function `selectDB`: `inclusion` was passed as a flat tuple — automatically wrapped. Add a trailing comma to avoid this: ((...),)"
         inclusion = (inclusion,)
     end
 
     # Check if there's a paradigm subfolder and move to it if it exists
     paradigmDir = joinpath(corpusdir, string(paradigm))
     isdir(paradigmDir) && (corpusdir = paradigmDir)
-    !isdir(corpusdir) && error("FIIBCICorpus.Database, function `selectDB`: the provided directory `corpusdir` is not valid. Please check: $corpusdir") 
+    !isdir(corpusdir) && error("FIIBCIcorpus.Database, function `selectDB`: the provided directory `corpusdir` is not valid. Please check: $corpusdir") 
 
-    dbDirs = FIIBCICorpus.FileUtils._getFoldersInDir(corpusdir)
-    isempty(dbDirs) && error("FIIBCICorpus.Database, function `selectDB`: No database found in the directory: $corpusdir")
+    dbDirs = FIIBCIcorpus.FileUtils._getFoldersInDir(corpusdir)
+    isempty(dbDirs) && error("FIIBCIcorpus.Database, function `selectDB`: No database found in the directory: $corpusdir")
 
     # Check paradigm and classes requirements - no error for MI/ERP without classes
     if (paradigm == :MI || paradigm == :ERP) && isnothing(classes)
-        println("FIIBCICorpus.Database, function `selectDB`: No class filter specified for $paradigm paradigm. All databases will be returned.")
+        println("FIIBCIcorpus.Database, function `selectDB`: No class filter specified for $paradigm paradigm. All databases will be returned.")
         @info "If you plan to train machine learning models, specify the `classes` argument to ensure consistent class selection across databases."
     end
 
@@ -838,7 +838,7 @@ function selectDB(corpusdir     :: String,
             # Remove paradigm and classes filters from inclusion if present
             forbidden = [f for (f, _) in inclusion if f ∈ ("paradigm", "classes")]
             if !isempty(forbidden)
-                @warn "FIIBCICorpus.Database, function `selectDB`: Filters automatically removed (conflict with function arguments): $(join(forbidden, ", "))"
+                @warn "FIIBCIcorpus.Database, function `selectDB`: Filters automatically removed (conflict with function arguments): $(join(forbidden, ", "))"
                 inclusion = Tuple(filter(x -> x[1] ∉ ("paradigm", "classes"), collect(inclusion)))
                 isempty(inclusion) && (inclusion = nothing)
             end
@@ -863,9 +863,9 @@ function selectDB(corpusdir     :: String,
 
     if isempty(selectedDB)
         if !isnothing(inclusion) && n_class_match > 0
-            error("FIIBCICorpus.Database, function `selectDB`: $n_class_match $(paradigm) database(s) matched paradigm/classes criteria but no session passed the `inclusion` filters.")
+            error("FIIBCIcorpus.Database, function `selectDB`: $n_class_match $(paradigm) database(s) matched paradigm/classes criteria but no session passed the `inclusion` filters.")
         else
-            error("FIIBCICorpus.Database, function `selectDB`: No $(paradigm) database contains all selected classes: $(join(classes, ", "))" *
+            error("FIIBCIcorpus.Database, function `selectDB`: No $(paradigm) database contains all selected classes: $(join(classes, ", "))" *
                 (!isempty(all_cLabels) ? ".\nAll available classes: " * join(sort(collect(all_cLabels)), ", ") : ""))
         end
     end
@@ -962,9 +962,9 @@ function selectDB(paradigm      :: Symbol;
                   summarize     :: Bool = true,
                   verbose       :: Bool = false)
 
-    corpusdir = FIIBCICorpus.DownloadFII.corpusDir() # default location: homedir()/FII_BCI_Corpus
+    corpusdir = FIIBCIcorpus.DownloadFII.corpusDir() # default location: homedir()/FII_BCI_Corpus
     if isnothing(corpusdir)
-        throw(ArgumentError("FIIBCICorpus.Database, function `selectDB`: the FII BCI Corpus has not been found in its default location $(joinpath(homedir(), "FII_BCI_Corpus")). Download it running `downloadDB()`, then call this function again, or pass the corpus folder as argument `corpusdir`"))
+        throw(ArgumentError("FIIBCIcorpus.Database, function `selectDB`: the FII BCI Corpus has not been found in its default location $(joinpath(homedir(), "FII_BCI_Corpus")). Download it running `downloadDB()`, then call this function again, or pass the corpus folder as argument `corpusdir`"))
     else
         selectDB(corpusdir, paradigm; classes, inclusion, summarize, verbose)
     end
@@ -976,7 +976,7 @@ function _weightsDB(subject, n)
     sess = [count(==(s), subject) for s in usub]
 
     sum(sess) ≠ n && error(
-        "FIIBCICorpus.Database, function `_weightsDB` called by `weightsDB`: " *
+        "FIIBCIcorpus.Database, function `_weightsDB` called by `weightsDB`: " *
         "the number of sessions does not match the number of files in the database"
     )
 
@@ -1103,7 +1103,7 @@ compute the weights for all files (i.e., sessions) in all selected databases. In
   weighted average index across all sessions and all databases as defined above.
 
 ```julia
-using FIIBCICorpus, Statistics # Statistics for `mean`
+using FIIBCIcorpus, Statistics # Statistics for `mean`
 
 # Example 1
 w, schedule = weightsDB(loadDB(dir, "condition1"))
@@ -1125,11 +1125,11 @@ function weightsDB(files)
     for (i, f) ∈ enumerate(files)
         splitext(f)[2]≠".npz" && deleteat!(files, i)
     end
-    length(files)==0 && error("FIIBCICorpus.Database, function `weightsDB`: no .npz file is present in the list of files passed as argument")
+    length(files)==0 && error("FIIBCIcorpus.Database, function `weightsDB`: no .npz file is present in the list of files passed as argument")
 
     # read one YAML file to find out the type of dictionary values
     filename=files[1]
-    isfile(splitext(filename)[1]*".yml") || error("FIIBCICorpus.Database, function `weightsDB`: no .yml (recording info) file has been found for npz file \n:", filename)
+    isfile(splitext(filename)[1]*".yml") || error("FIIBCIcorpus.Database, function `weightsDB`: no .yml (recording info) file has been found for npz file \n:", filename)
 
     # get memory for all entry of the YAML dictionary for all files
     # knowing the type of the values is much more memory-efficient
@@ -1138,7 +1138,7 @@ function weightsDB(files)
 
     for (f, filename) ∈ enumerate(files)
 
-        isfile(splitext(filename)[1]*".yml") || error("FIIBCICorpus.Database, function `weightsDB`: no .yml (recording info) file has been found for npz file \n:", filename)
+        isfile(splitext(filename)[1]*".yml") || error("FIIBCIcorpus.Database, function `weightsDB`: no .yml (recording info) file has been found for npz file \n:", filename)
         push!(subject, YAML.load(open(splitext(filename)[1]*".yml"))["id"]["subject"])
     end
 

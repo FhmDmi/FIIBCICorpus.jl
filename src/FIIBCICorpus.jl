@@ -1,4 +1,4 @@
-module FIIBCICorpus
+module FIIBCIcorpus
 
 using Reexport
 
@@ -8,7 +8,7 @@ const separatorFont = "\x1b[35m"
 const defaultFont   = "\x1b[0m"
 const greyFont      = "\x1b[90m"
 
-export FIIBCICorpus
+export FIIBCIcorpus
 
 include("FileUtils.jl")         # internal, not re-exported
 include("DownloadFII.jl");      @reexport using .DownloadFII

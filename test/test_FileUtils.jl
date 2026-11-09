@@ -1,11 +1,11 @@
-println("\x1b[95m", "\nTesting module FIIBCICorpus.FileUtils.jl...", "\x1b[0m")
+println("\x1b[95m", "\nTesting module FIIBCIcorpus.FileUtils.jl...", "\x1b[0m")
 
-using FIIBCICorpus.FileUtils: _fileBase, _getFilesInDir, _getFoldersInDir
+using FIIBCIcorpus.FileUtils: _fileBase, _getFilesInDir, _getFoldersInDir
 
-# Eegle re-exports FIIBCICorpus: these internal helpers must stay out of its namespace
+# Eegle re-exports FIIBCIcorpus: these internal helpers must stay out of its namespace
 @testset "FileUtils is internal" begin
-    @test :FileUtils ∉ names(FIIBCICorpus)
-    @test isempty(names(FIIBCICorpus.FileUtils) ∩ [:_fileBase, :_getFilesInDir, :_getFoldersInDir])
+    @test :FileUtils ∉ names(FIIBCIcorpus)
+    @test isempty(names(FIIBCIcorpus.FileUtils) ∩ [:_fileBase, :_getFilesInDir, :_getFoldersInDir])
 end
 
 

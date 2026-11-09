@@ -1,4 +1,4 @@
-using FIIBCICorpus, Test
+using FIIBCIcorpus, Test
 
 include("test_FileUtils.jl")
 include("test_DownloadFII.jl")

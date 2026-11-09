@@ -1,9 +1,9 @@
-println("\x1b[95m", "\nTesting module FIIBCICorpus.DownloadFII.jl...", "\x1b[0m")
+println("\x1b[95m", "\nTesting module FIIBCIcorpus.DownloadFII.jl...", "\x1b[0m")
 
 # All tests are offline: the download engine is tested on local zip archives served as `file://` URLs,
 # and every other code path tested here returns or throws before any HTTP request.
 
-const DF = FIIBCICorpus.DownloadFII
+const DF = FIIBCIcorpus.DownloadFII
 
 # Run `f` with the homedir redirected to `dir`
 # (libuv reads USERPROFILE on Windows and HOME elsewhere)

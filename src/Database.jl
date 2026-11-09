@@ -132,14 +132,14 @@ contains the string will be included.
 
 **See Also** 
 
-[`selectDB`](@ref), [`infoDB`](@ref), [`FIIBCICorpus.FileSystem.getFilesInDir`](@ref)
+[`selectDB`](@ref), [`infoDB`](@ref)
 
 **Examples**
 See the first example of [`weightsDB`](@ref)
 """
 function loadDB(dbDir=AbstractString, isin::String="")
   # create a list of all .npz files found in dbDir (complete path)
-  npzFiles=FIIBCICorpus.FileSystem.getFilesInDir(dbDir; ext=(".npz", ), isin=isin)
+  npzFiles=FIIBCICorpus.FileUtils._getFilesInDir(dbDir; ext=(".npz", ), isin=isin)
 
   # check if for each .npz file there is a corresponding .yml file
   missingYML=[i for i ∈ eachindex(npzFiles) if !isfile(splitext(npzFiles[i])[1]*".yml")]
@@ -797,7 +797,7 @@ function selectDB(corpusdir     :: String,
     isdir(paradigmDir) && (corpusdir = paradigmDir)
     !isdir(corpusdir) && error("FIIBCICorpus.Database, function `selectDB`: the provided directory `corpusdir` is not valid. Please check: $corpusdir") 
 
-    dbDirs = FIIBCICorpus.FileSystem.getFoldersInDir(corpusdir)
+    dbDirs = FIIBCICorpus.FileUtils._getFoldersInDir(corpusdir)
     isempty(dbDirs) && error("FIIBCICorpus.Database, function `selectDB`: No database found in the directory: $corpusdir")
 
     # Check paradigm and classes requirements - no error for MI/ERP without classes

@@ -10,7 +10,7 @@ const greyFont      = "\x1b[90m"
 
 export FIIBCICorpus
 
-include("FileSystem.jl");       @reexport using .FileSystem
+include("FileUtils.jl")         # internal, not re-exported
 include("DownloadFII.jl");      @reexport using .DownloadFII
 # modules with internal dependencies
 include("Database.jl");         @reexport using .Database

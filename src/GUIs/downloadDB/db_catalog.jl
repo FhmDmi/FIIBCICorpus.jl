@@ -338,7 +338,7 @@ to the functions using it (e.g., argument `corpusdir` of
 using FIIBCICorpus
 
 # get the full path of all .npz (data) files of database AlexMI
-db = getFilesInDir(joinpath(corpusDir(), "MI", "AlexMI"); ext=(".npz", ))
+db = loadDB(joinpath(corpusDir(), "MI", "AlexMI"))
 
 # process the data file by file ...
 

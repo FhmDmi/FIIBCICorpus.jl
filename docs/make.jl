@@ -7,7 +7,6 @@ Pkg.instantiate() # local FIIBCICorpus via [sources] in docs/Project.toml (`Pkg.
 using Documenter
 ## ADD HERE ALL MODULES!
 using   FIIBCICorpus,
-        FIIBCICorpus.FileSystem,
         FIIBCICorpus.DownloadFII,
         FIIBCICorpus.Database
 
@@ -17,7 +16,7 @@ makedocs(;
    sitename="FIIBCICorpus",
    authors="Fahim Doumi, Marco Congedo and Contributors",
    format = Documenter.HTML(; prettyurls = CI, edit_link = "master"),
-   modules = [FIIBCICorpus, FIIBCICorpus.FileSystem, FIIBCICorpus.DownloadFII, FIIBCICorpus.Database],
+   modules = [FIIBCICorpus, FIIBCICorpus.DownloadFII, FIIBCICorpus.Database],
    # explicit, so that the local build does not depend on the `origin` remote of the clone
    repo = Remotes.GitHub("FhmDmi", "FIIBCICorpus.jl"),
  pages = [
@@ -26,9 +25,6 @@ makedocs(;
         "🧠 FIIBCICorpus Modules" => [
             "Download" => "DownloadFII.md",
             "Database" => "Database.md",
-        ],
-        "🔧 Utilities" => [
-            "File System" => "FileSystem.md",
         ],
         "📚 FII BCI Corpus" => [
             "FII BCI Corpus" => "documents/FII BCI Corpus Overview.md",

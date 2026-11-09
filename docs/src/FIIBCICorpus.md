@@ -20,7 +20,6 @@ Since **Eegle** re-exports **FIIBCICorpus**, `using Eegle` gives access to them 
 |:------------|:------------|
 | [DownloadFII.jl](@ref) | download and locate the FII BCI Corpus |
 | [Database.jl](@ref) | summarize and select databases and sessions in NY format |
-| [FileSystem.jl](@ref) | manipulation of files and directories |
 
 ## Used but not re-exported external packages
 

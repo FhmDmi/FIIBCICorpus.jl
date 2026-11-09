@@ -16,7 +16,7 @@ CI = get(ENV, "CI", "false") == "true"
 makedocs(;
    sitename="FIIBCICorpus",
    authors="Fahim Doumi, Marco Congedo and Contributors",
-   format = Documenter.HTML(; prettyurls = CI, edit_link = "main"),
+   format = Documenter.HTML(; prettyurls = CI, edit_link = "master"),
    modules = [FIIBCICorpus, FIIBCICorpus.FileSystem, FIIBCICorpus.DownloadFII, FIIBCICorpus.Database],
    # explicit, so that the local build does not depend on the `origin` remote of the clone
    repo = Remotes.GitHub("FhmDmi", "FIIBCICorpus.jl"),
@@ -48,7 +48,7 @@ if CI
     deploydocs(
         repo = "github.com/FhmDmi/FIIBCICorpus.jl.git",
         branch = "gh-pages",
-        devbranch = "main",
+        devbranch = "master",
         push_preview = false,
     )
 else

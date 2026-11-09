@@ -19,7 +19,7 @@ The NY files are then read and processed with **Eegle**, which depends on **FIIB
 
 ## 🧩 Requirements
 
-**Julia**: version ≥ 1.13
+**Julia**: version ≥ 1.12
 
 ---
 

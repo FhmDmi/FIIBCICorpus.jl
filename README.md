@@ -1,12 +1,12 @@
 | Documentation | CI | EEG BCI Data | Ecosystem |
 |:-----:|:-----:|:-----:|:-----:|
-| [![](https://img.shields.io/badge/docs-dev-blue.svg)](https://fhmdmi.github.io/FIIBCICorpus.jl/dev/) | [![CI](https://github.com/FhmDmi/FIIBCICorpus.jl/actions/workflows/CI.yml/badge.svg)](https://github.com/FhmDmi/FIIBCICorpus.jl/actions/workflows/CI.yml) | [![](https://img.shields.io/badge/Motor_Imagery-blue.svg)](https://doi.org/10.5281/zenodo.17801878) [![](https://img.shields.io/badge/P300-blue.svg)](https://doi.org/10.5281/zenodo.17250465) | [![](https://img.shields.io/badge/Eegle-blue.svg)](https://github.com/Marco-Congedo/Eegle.jl) |
+| [![](https://img.shields.io/badge/docs-dev-blue.svg)](https://fhmdmi.github.io/FIIBCIcorpus.jl/dev/) | [![CI](https://github.com/FhmDmi/FIIBCIcorpus.jl/actions/workflows/CI.yml/badge.svg)](https://github.com/FhmDmi/FIIBCIcorpus.jl/actions/workflows/CI.yml) | [![](https://img.shields.io/badge/Motor_Imagery-blue.svg)](https://doi.org/10.5281/zenodo.17801878) [![](https://img.shields.io/badge/P300-blue.svg)](https://doi.org/10.5281/zenodo.17250465) | [![](https://img.shields.io/badge/Eegle-blue.svg)](https://github.com/Marco-Congedo/Eegle.jl) |
 
 # FIIBCIcorpus
 
 **FIIBCIcorpus** is the data loader of the [**Eegle**](https://github.com/Marco-Congedo/Eegle.jl) ecosystem
 for the **FII BCI Corpus**, a selection of Brain-Computer Interface (BCI) EEG databases in Motor Imagery (MI)
-and P300 paradigms, annotated and curated for research purposes in [NY format](https://fhmdmi.github.io/FIIBCICorpus.jl/dev/documents/NY%20format/).
+and P300 paradigms, annotated and curated for research purposes in [NY format](https://fhmdmi.github.io/FIIBCIcorpus.jl/dev/documents/NY%20format/).
 
 It provides:
 - a web-based GUI to download the databases of the corpus from [Zenodo](https://zenodo.org/);
@@ -28,7 +28,7 @@ The NY files are then read and processed with **Eegle**, which depends on **FIIB
 Execute the following command in Julia's REPL:
 
 ```julia
-]add https://github.com/FhmDmi/FIIBCICorpus.jl/tree/master
+]add https://github.com/FhmDmi/FIIBCIcorpus.jl/tree/master
 ```
 
 ---

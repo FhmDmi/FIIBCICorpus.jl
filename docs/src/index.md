@@ -17,7 +17,7 @@ The NY files are then read and processed with **Eegle**, which depends on **FIIB
 Execute the following commands in Julia's REPL:
 
 ```julia
-]add https://github.com/FhmDmi/FIIBCICorpus.jl/tree/master
+]add https://github.com/FhmDmi/FIIBCIcorpus.jl/tree/master
 ```
 then hit the 'back' keyboard key to exit the REPL package manager mode.
 

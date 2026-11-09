@@ -18,7 +18,7 @@ makedocs(;
    format = Documenter.HTML(; prettyurls = CI, edit_link = "master"),
    modules = [FIIBCIcorpus, FIIBCIcorpus.DownloadFII, FIIBCIcorpus.Database],
    # explicit, so that the local build does not depend on the `origin` remote of the clone
-   repo = Remotes.GitHub("FhmDmi", "FIIBCICorpus.jl"),
+   repo = Remotes.GitHub("FhmDmi", "FIIBCIcorpus.jl"),
  pages = [
         "index.md",
         "🗄️ FIIBCIcorpus Package" => "FIIBCIcorpus.md",
@@ -42,7 +42,7 @@ makedocs(;
 
 if CI
     deploydocs(
-        repo = "github.com/FhmDmi/FIIBCICorpus.jl.git",
+        repo = "github.com/FhmDmi/FIIBCIcorpus.jl.git",
         branch = "gh-pages",
         devbranch = "master",
         push_preview = false,

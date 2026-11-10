@@ -12,7 +12,6 @@ using FIIBCIcorpus
 ```
 
 you have access to all functions exported by all **FIIBCIcorpus** modules.
-Since **Eegle** re-exports **FIIBCIcorpus**, `using Eegle` gives access to them as well.
 
 ## Internal modules
 

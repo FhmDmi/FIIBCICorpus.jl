@@ -4,7 +4,7 @@
 for the [FII BCI Corpus](@ref "FII BCI Corpus Overview").
 
 It downloads the databases of the corpus in [NY format](@ref "NY format").
-The NY files are then read and processed with **Eegle**.
+The NY files are then read and processed with **Eegle**, which depends on **FIIBCIcorpus** and re-exports it.
 
 ## 🧩 Requirements 
 
@@ -17,19 +17,9 @@ The NY files are then read and processed with **Eegle**.
 Execute the following commands in Julia's REPL:
 
 ```julia
-]add https://github.com/FhmDmi/FIIBCIcorpus.jl/tree/master
+]add FIIBCIcorpus
 ```
 then hit the 'back' keyboard key to exit the REPL package manager mode.
-
-To read and process the NY files, also install [**Eegle**](https://marco-congedo.github.io/Eegle.jl/dev/), which is not a dependency of **FIIBCIcorpus**:
-
-```julia
-]add Eegle
-```
-
-and load both with `using Eegle, FIIBCIcorpus`.
-
-Eegle 0.2.12 and earlier still export the database functions themselves: with these versions, write the names in full (`FIIBCIcorpus.selectDB`, `FIIBCIcorpus.downloadDB`, ...), since Julia leaves names exported by two packages undefined.
 
 ---
 

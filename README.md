@@ -1,6 +1,6 @@
 | Documentation | CI | EEG BCI Data | Ecosystem |
 |:-----:|:-----:|:-----:|:-----:|
-| [![](https://img.shields.io/badge/docs-dev-blue.svg)](https://fhmdmi.github.io/FIIBCIcorpus.jl/dev/) | [![CI](https://github.com/FhmDmi/FIIBCIcorpus.jl/actions/workflows/CI.yml/badge.svg)](https://github.com/FhmDmi/FIIBCIcorpus.jl/actions/workflows/CI.yml) | [![](https://img.shields.io/badge/Motor_Imagery-blue.svg)](https://doi.org/10.5281/zenodo.17801878) [![](https://img.shields.io/badge/P300-blue.svg)](https://doi.org/10.5281/zenodo.17250465) | [![](https://img.shields.io/badge/Eegle-blue.svg)](https://github.com/Marco-Congedo/Eegle.jl) |
+| [![](https://img.shields.io/badge/docs-dev-blue.svg)](https://fhmdmi.github.io/FIIBCIcorpus.jl/dev/) | [![CI](https://github.com/FhmDmi/FIIBCIcorpus.jl/actions/workflows/CI.yml/badge.svg)](https://github.com/FhmDmi/FIIBCIcorpus.jl/actions/workflows/CI.yml) [![codecov](https://codecov.io/gh/FhmDmi/FIIBCIcorpus.jl/graph/badge.svg)](https://codecov.io/gh/FhmDmi/FIIBCIcorpus.jl) | [![](https://img.shields.io/badge/Motor_Imagery-blue.svg)](https://doi.org/10.5281/zenodo.17801878) [![](https://img.shields.io/badge/P300-blue.svg)](https://doi.org/10.5281/zenodo.17250465) | [![](https://img.shields.io/badge/Eegle-blue.svg)](https://github.com/Marco-Congedo/Eegle.jl) |
 
 # FIIBCIcorpus
 
@@ -51,9 +51,9 @@ DB_MI = selectDB(:MI;
 
 ## ✍️ About the Authors
 
-[Fahim Doumi](https://www.linkedin.com/in/fahim-doumi-4888a9251/?locale=fr_FR), corresponding author, is a PhD student at [University Federico II of Naples](https://www.unina.it/en_GB/home) and [UGA](https://www.univ-grenoble-alpes.fr/english/) (University of Grenoble Alpes). **Contact**: fahim dot doumi dot pro at gmail dot com.
+[Fahim Doumi](https://www.linkedin.com/in/fahim-doumi-4888a9251/?locale=fr_FR), corresponding author, is a PhD student at [University Federico II of Naples](https://www.unina.it/en_GB/home) and [UGA](https://www.univ-grenoble-alpes.fr/en) (University of Grenoble Alpes). **Contact**: fahim dot doumi dot pro at gmail dot com.
 
-[Marco Congedo](https://sites.google.com/site/marcocongedo) is a Research Director of [CNRS](http://www.cnrs.fr/en) (Centre National de la Recherche Scientifique), working at UGA.
+[Marco Congedo](https://sites.google.com/site/marcocongedo) is a Research Director of [CNRS](https://www.cnrs.fr/en) (Centre National de la Recherche Scientifique), working at UGA.
 
 ---
 

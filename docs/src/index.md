@@ -37,9 +37,9 @@ Read the [next page](@ref "FIIBCIcorpus") of this documentation for general info
 
 ## ✍️ About the Authors
 
-[Fahim Doumi](https://www.linkedin.com/in/fahim-doumi-4888a9251/?locale=fr_FR), corresponding author, is a PhD student at [University Federico II of Naples](https://www.unina.it/en_GB/home) and [UGA](https://www.univ-grenoble-alpes.fr/english/) (University of Grenoble Alpes). **Contact**: fahim dot doumi dot pro at gmail dot com.
+[Fahim Doumi](https://www.linkedin.com/in/fahim-doumi-4888a9251/?locale=fr_FR), corresponding author, is a PhD student at [University Federico II of Naples](https://www.unina.it/en_GB/home) and [UGA](https://www.univ-grenoble-alpes.fr/en) (University of Grenoble Alpes). **Contact**: fahim dot doumi dot pro at gmail dot com.
 
-[Marco Congedo](https://sites.google.com/site/marcocongedo) is a Research Director of [CNRS](http://www.cnrs.fr/en) (Centre National de la Recherche Scientifique), working at UGA.
+[Marco Congedo](https://sites.google.com/site/marcocongedo) is a Research Director of [CNRS](https://www.cnrs.fr/en) (Centre National de la Recherche Scientifique), working at UGA.
 
 ---
 
